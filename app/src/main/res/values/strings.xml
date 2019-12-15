@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">MedicalFileTransfer</string>
+    <string name="fields">
+        First Name:
+        \nMiddle Name:
+        \nLast Name:
+        \nGender:
+        \nDate of Birth:
+        \nAddress:
+        \nInsurance:
+        \nInsurance ID#:
+        \n
+    </string>
+</resources>

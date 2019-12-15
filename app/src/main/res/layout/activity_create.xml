@@ -1,0 +1,748 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CreateActivity">
+
+    <TextView
+        android:id="@+id/instructionTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center|clip_vertical|center_horizontal"
+        android:text="PLEASE ENTER YOUR INFORMATION."
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.04000002" />
+
+    <Button
+        android:id="@+id/SaveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="save"
+        android:text="Save"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/instructionTextView"
+        app:layout_constraintVertical_bias="0.96" />
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/SaveButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/instructionTextView">
+
+        <LinearLayout
+            android:id="@+id/UserInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/RequiredFieldsInstruction"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:text="Starred Fields are Required." />
+
+
+            <TextView
+                android:id="@+id/NameInstruction"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="NAME"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="@color/black" />
+
+            <LinearLayout
+                android:id="@+id/NameLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="40dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/FirstName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:hint="* First Name" />
+
+                <EditText
+                    android:id="@+id/MiddleName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:paddingLeft="1dp"
+                    android:paddingRight="1dp"
+                    android:hint="Middle Name" />
+
+                <EditText
+                    android:id="@+id/LastName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:hint="* Last Name" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/GenderInstruction"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="* BIOLOGICAL GENDER"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="@color/black" />
+
+            <RadioGroup
+                android:id="@+id/GenderLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="40dp"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/Male"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Male" />
+
+                <RadioButton
+                    android:id="@+id/Female"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Female" />
+
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/DOBInstruction"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="* DATE OF BIRTH"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="@color/black" />
+
+            <LinearLayout
+                android:id="@+id/DOBLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="40dp"
+                android:orientation="horizontal">
+
+                <Spinner
+                    android:id="@+id/DOBMonth"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/months" />
+
+                <Spinner
+                    android:id="@+id/DOBDay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:entries="@array/days" />
+
+                <EditText
+                    android:id="@+id/DOBYear"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="YEAR"
+                    android:maxLength="4"
+                    android:inputType="number" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/AddressInstruction"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="ADDRESS"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="@color/black" />
+
+            <LinearLayout
+                android:id="@+id/AddressLayoutOne"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/StreetAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="* Street Address"
+                    android:inputType="textPostalAddress" />
+
+                <EditText
+                    android:id="@+id/ApartmentNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:ems="10"
+                    android:hint="Apt. #"
+                    android:inputType="textPersonName" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/AddressLayoutTwo"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/City"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="40dp"
+                    android:layout_weight="7"
+                    android:ems="10"
+                    android:hint="* City"
+                    android:inputType="textPersonName" />
+
+                <Spinner
+                    android:id="@+id/State"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/states" />
+
+                <EditText
+                    android:id="@+id/PostalCode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="9"
+                    android:ems="10"
+                    android:hint="* Postal Code"
+                    android:inputType="number"
+                    android:maxLength="5" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/InsuranceInstruction"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="* INSURANCE"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="@color/black" />
+
+            <LinearLayout
+                android:id="@+id/InsuranceProviderLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="40dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/InsuranceProvider"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="Your Insurance Provider"
+                    android:inputType="textPersonName" />
+
+                <EditText
+                    android:id="@+id/InsuranceIDNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:ems="10"
+                    android:hint="ID #"
+                    android:inputType="number" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/PrimaryCareProviderInstruction"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="* PRIMARY CARE PROVIDER"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/PrimaryDoctor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="40dp"
+                android:ems="10"
+                android:hint="Your Primary Care Provider"
+                android:inputType="textPersonName" />
+
+            <TextView
+                android:id="@+id/PastMedicalHistoryInstruction"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="PAST MEDICAL HISTORY"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="@color/black" />
+
+            <LinearLayout
+                android:id="@+id/PastMedicalHistoryLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/PastMedicalHistory1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Past/Current Condition(s)"
+                    android:inputType="textPersonName" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/AddPastMedicalHistory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:onClick="addPastMedicalHistory"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="40dp"
+                android:text="Add" />
+
+            <TextView
+                android:id="@+id/CurrentMedicationInstruction"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="CURRENT MEDICATION(S)"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="@color/black" />
+
+            <LinearLayout
+                android:id="@+id/CurrentMedicationLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/CurrentMedication1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/CurrentMedication"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="21"
+                        android:ems="10"
+                        android:hint="Medication Name"
+                        android:inputType="textPersonName" />
+
+                    <EditText
+                        android:id="@+id/MedicationFrequency"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="28"
+                        android:ems="10"
+                        android:hint="Frequency"
+                        android:inputType="textPersonName"/>
+
+
+                    <EditText
+                        android:id="@+id/MedicationDosage"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="30"
+                        android:ems="10"
+                        android:hint="Dosage"
+                        android:inputType="textPersonName" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/AddCurrentMedication"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="40dp"
+                android:layout_weight="2"
+                android:onClick="addCurrentMedication"
+                android:text="Add" />
+
+            <TextView
+                android:id="@+id/AllergiesToMedicationsInstruction"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="ALLERGIES TO MEDICATIONS"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="@color/black" />
+
+            <LinearLayout
+                android:id="@+id/AllergiesToMedicationsLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/AllergiesToMedication1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/Allergy1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:hint="Medication"
+                        android:inputType="textPersonName" />
+
+                    <EditText
+                        android:id="@+id/Reaction1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:hint="Reaction"
+                        android:inputType="textPersonName" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/AddAllergiesToMedication"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="40dp"
+                android:onClick="addAllergiesToMedication"
+                android:text="Add" />
+
+            <TextView
+                android:id="@+id/PastSurgicalHistoryInstruction"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="PAST SURGICAL HISTORY"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="@color/black" />
+
+            <LinearLayout
+                android:id="@+id/PastSurgicalHistoryLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:id="@+id/PastSurgicalHistory1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/Procedure1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:hint="Procedure"
+                        android:inputType="textPersonName" />
+
+                    <EditText
+                        android:id="@+id/Year1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:maxLength="4"
+                        android:hint="Year"
+                        android:inputType="number" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/AddPastSurgicalHistory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="40dp"
+                android:onClick="addPastSurgicalHistory"
+                android:text="Add" />
+
+            <LinearLayout
+            android:id="@+id/SocialHistoryLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="40dp"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/SocialHistoryInstruction"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="SOCIAL HISTORY"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/TobaccoInstruction"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text=" * Do you use Tobacco? (Mark all that apply)"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/black" />
+
+                <LinearLayout
+                    android:id="@+id/TobaccoProductLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/SmokeCheckBox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Smoke" />
+
+                    <CheckBox
+                        android:id="@+id/VapeCheckBox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Vape" />
+
+                    <CheckBox
+                        android:id="@+id/ChewingCheckBox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Chewing" />
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/SmokeFrequency"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="How much do you smoke? (Packs per day)"
+                    android:inputType="textPersonName" />
+
+                <EditText
+                    android:id="@+id/VapeFrequency"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="How much do you vape? (Milligrams of Nicotine per day)"
+                    android:inputType="textPersonName" />
+
+                <EditText
+                    android:id="@+id/ChewingFrequency"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="How much Tobacco do you chew? (Milligrams per day)"
+                    android:inputType="textPersonName" />
+
+
+                <TextView
+                    android:id="@+id/AlcoholInstruction"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=" * Do you drink?"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/black" />
+
+            <RadioGroup
+                android:id="@+id/Alcohol"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="match_parent">
+
+                <RadioButton
+                    android:id="@+id/AlcoholNo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="No" />
+
+                <RadioButton
+                    android:id="@+id/AlcoholYes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Yes" />
+
+            </RadioGroup>
+
+            <EditText
+                android:id="@+id/AlcoholFrequency"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="How often do you drink? (i.e. Drinks per day)"
+                android:inputType="textPersonName" />
+
+                <TextView
+                    android:id="@+id/MarijuanaInstruction"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=" * Do you use Marijuana"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/black" />
+
+            <RadioGroup
+                android:id="@+id/Marijuana"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="match_parent">
+
+                <RadioButton
+                    android:id="@+id/MarijuanaNo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="No" />
+
+                <RadioButton
+                    android:id="@+id/MarijuanaYes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Yes" />
+
+            </RadioGroup>
+
+            <EditText
+                android:id="@+id/MarijuanaFrequency"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="How often do you use Marijuana (MG per day)"
+                android:inputType="textPersonName" />
+
+                <TextView
+                    android:id="@+id/IllicitDrugsInstruction"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=" * Do you use other Illicit Drugs?"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/black" />
+
+            <RadioGroup
+                android:id="@+id/IllicitDrugs"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="match_parent">
+
+                <RadioButton
+                    android:id="@+id/IllicitDrugsNo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="No" />
+
+                <RadioButton
+                    android:id="@+id/IllicitDrugsYes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Yes" />
+
+            </RadioGroup>
+
+            <EditText
+                android:id="@+id/IllicitDrugTypes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="What other Illicit Drugs do you use?"
+                android:inputType="textPersonName" />
+
+        </LinearLayout>
+
+            <TextView
+                android:id="@+id/FamilyHistoryInstruction"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="FAMILY MEDICAL HISTORY"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="@color/black" />
+
+            <LinearLayout
+                android:id="@+id/FamilyHistoryLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/FatherHistory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Father's Past/Current Conditions"
+                    android:inputType="textPersonName" />
+
+                <EditText
+                    android:id="@+id/MotherHistory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Mother's Past/Current Conditions"
+                    android:inputType="textPersonName" />
+
+                <EditText
+                    android:id="@+id/SiblingConditionsField2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Sibling(s)'s Past/Current Conditions"
+                    android:inputType="textPersonName" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
